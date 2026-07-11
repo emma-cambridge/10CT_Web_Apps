@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-AU">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1> First Nation's baking </h1>
+        <div class="navbar">
+            <a href="#">History</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="#">View Profile</a>
+            <a href="#" class="right">Explore Recipes</a>
+        </div>
+        <h1>Sign In</h1>
+        <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    </body>
+</html>

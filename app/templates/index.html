@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-AU">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1> First Nation's baking </h1>
+        <div class="navbar">
+            <a href="#">History</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="#">View Profile</a>
+            <a href="#" class="right">Explore Recipes</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <div class="new recipes">
+            <h2>New Recipes</h2>
+            <img src="ya" alt="new recipes">
+        </div>
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>First Nation's Baking aims to....</p>
+        </div>
+    </body>
+</html>
