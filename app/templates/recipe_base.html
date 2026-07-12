@@ -1,17 +1,7 @@
-<!doctype html>
-<html lang="en-AU">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{title}}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1> First Nation's baking </h1>
-        <div class="navbar">
-            <a href="#">History</a>
-            <a href="{{ url_for('login') }}">Login</a>
-            <a href="#">View Profile</a>
-            <a href="#" class="right">Explore Recipes</a>
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
