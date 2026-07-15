@@ -1,13 +1,13 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, PostForm
+from app.models import User, Post
 from flask_login import current_user, login_user, logout_user, login_required
 from urllib.parse import urlsplit
 import sqlalchemy as sa
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template("index.html")
 
@@ -48,19 +48,18 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route('/recipe')
+@app.route('/recipe', methods=['GET', 'POST'])
 def recipe_base():
-    posts = [
-        {
-            'author': {'username': 'Mia'},
-            'body': 'I like trains'
-        },
-        {
-            'author': {'username': 'Dino'},
-            'body': 'RAHHHH!!!'
-        }
-    ]
-    return render_template("recipe_base.html", title='Recipe Base', posts=posts)
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('recipe_base'))
+    posts = db.session.scalars(db.select(Post)).all()
+    return render_template("recipe_base.html", title='Home Page', form=form,
+                           posts=posts)
 
 @app.route('/user/<username>')
 @login_required
