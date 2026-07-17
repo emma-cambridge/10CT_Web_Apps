@@ -60,6 +60,7 @@ def recipe_base():
     posts = db.session.scalars(db.select(Post)).all()
     return render_template("recipe_base.html", title='Home Page', form=form,
                            posts=posts)
+    
 
 @app.route('/user/<username>')
 @login_required

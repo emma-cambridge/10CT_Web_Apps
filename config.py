@@ -11,3 +11,4 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['emma.cambridge1@education.nsw.gov.au']
+    POSTS_PER_PAGE = 3
