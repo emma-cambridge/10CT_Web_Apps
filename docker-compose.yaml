@@ -5,7 +5,7 @@ services:
     container_name: es-local
     environment:
       - discovery.type=single-node
-      - ELASTIC_PASSWORD=changeme
+      - ELASTIC_PASSWORD=baloopbaloop
       - xpack.security.enabled=true
     ports:
       - "9200:9200"
