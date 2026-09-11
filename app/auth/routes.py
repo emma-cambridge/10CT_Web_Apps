@@ -1,17 +1,19 @@
-from flask import render_template, flash, redirect, url_for, request
-from app import app, db
+from flask import Blueprint, render_template, flash, redirect, url_for, request
+from app import db
 from app.forms import LoginForm, RegistrationForm, PostForm
 from app.models import User, Post
 from flask_login import current_user, login_user, logout_user, login_required
 from urllib.parse import urlsplit
 import sqlalchemy as sa
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
+bp = Blueprint('auth', __name__)
+
+@bp.route('/', methods=['GET', 'POST'])
+@bp.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template("index.html")
 
-@app.route('/login', methods=['GET', 'POST'])
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -29,12 +31,12 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/logout')
+@bp.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/register', methods=['GET', 'POST'])
+@bp.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -48,7 +50,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route('/recipe', methods=['GET', 'POST'])
+@bp.route('/recipe', methods=['GET', 'POST'])
 def recipe_base():
     form = PostForm()
     if form.validate_on_submit():
@@ -62,7 +64,7 @@ def recipe_base():
                            posts=posts)
     
 
-@app.route('/user/<username>')
+@bp.route('/user/<username>')
 @login_required
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username))
