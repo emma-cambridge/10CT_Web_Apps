@@ -1,8 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="mission">
-        <h2>Our Mission</h2>
-        <p>First Nation's Baking aims to....</p>
-    </div>
+    <section class="section-1">
+        <div class="about-us">
+        <h2>Start Eating Local</h2>
+        <p>Australia has a rich food culture spanning over 60,000 years, relying on seasonal, native produce to nourish communities.</p>
+        <p>Here at Billabong Baking we believe in eating local to reduce our environmental impact, connect to indigenous culture, save money, and improve our nutritional health. We collect delicious recipes from all over the internet which use native Australian ingredients for you to search through.</p>
+        <a href="{{ url_for('history') }}" class="default-button">Learn More</a>
+        <a href="{{ url_for('explore') }}" class="default-button">Explore Our Recipes</a>
+        </div>
+    </section>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="img1.jpg" style="width:100%">
+            <div class="text">Caption Text</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="img2.jpg" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+        
+
 {% endblock %}

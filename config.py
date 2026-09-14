@@ -12,4 +12,3 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['emma.cambridge1@education.nsw.gov.au']
     POSTS_PER_PAGE = 3
-    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')

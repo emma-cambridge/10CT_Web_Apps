@@ -4,7 +4,6 @@ from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Le
 import sqlalchemy as sa
 from app import db
 from app.models import User
-from flask import request
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -36,12 +35,3 @@ class PostForm(FlaskForm):
     post = TextAreaField('Leave a Comment', validators=[
         DataRequired(), Length(min=1, max=140)])
     submit = SubmitField('Submit')
-
-class SearchForm(FlaskForm):
-
-    def __init__(self, *args, **kwargs):
-        if 'formdata' not in kwargs:
-            kwargs['formdata'] = request.args
-        if 'meta' not in kwargs:
-            kwargs['meta'] = {'csrf': False}
-        super(SearchForm, self).__init__(*args, **kwargs)

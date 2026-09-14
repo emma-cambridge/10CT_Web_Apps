@@ -1,0 +1,74 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#F8F6EB;
+}
+
+.header{
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    background:#F8F6EB;
+    padding: 21px 40px;
+    top: 0;
+    color:#6E683C;
+    font-size: 20px;
+    border-bottom: 8px solid #6E683C;
+    padding-bottom: 13px;
+    margin-bottom: 15px;   
+}
+
+.profile-button{
+    display: flex;
+    margin-left: auto;
+    padding: 7px 10px;
+    gap: 16px;
+    max-width: 150px;
+    text-align: left;
+    align-items: center;
+    border: 1.5px solid #a8ad63;
+    border-radius: 90px;
+    color: #a8ad63;
+    font-size: 1rem;
+    text-decoration: none; /* stolen from a stack overflow thing, this gets rid of the underline on hyperlinks*/
+    background: #FCFAF1;
+}
+
+.profile-picture{
+    max-width: 28px;
+    height: auto;
+    border-radius: 50%;
+    justify-content: right;
+    align-items: center;
+}
+
+.navbar{
+    text-align: center;
+    align-items: center;
+    border-bottom: 2px solid #6E683C;
+}
+
+.navbar a{
+    list-style: none;
+    margin-left: auto;
+    text-decoration: none;
+    color:#BF8951;
+    align-items: center;
+    padding: 0px 40px;
+
+}
+
+.section-1{
+    padding: 50px 40px;
+    background-image: url('/static/images/baking_background_picture.png');
+}
+
+hr {
+    color:#F8F6EB;
+    border-width: 0px;
+}
