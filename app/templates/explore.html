@@ -1,4 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1> Explore Recipes </h1>
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('lilly-pilly')"> Lilly Pilly</button>
+  <button class="btn" onclick="filterSelection('lemon-myrtle')"> Lemon Myrtle</button>
+  <button class="btn" onclick="filterSelection('wattleseed')"> Wattleseed</button>
+  <button class="btn" onclick="filterSelection('quandong')"> Quandong</button>
+  <button class="btn" onclick="filterSelection('macadamia')"> Macadamia</button>
+</div>
+
+<!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+<div class="container">
+  <div class="filterDiv lilly-pilly"><a href="{{ url_for('index') }}">Lilly Pilly Cordial</a></div>
+  <div class="filterDiv lilly-pilly">Strawberry, Lilly Pilly, and Moscato Granita</div>
+  <div class="filterDiv lemon-myrtle macadamia">Banana Bread</div>
+  <div class="filterDiv lemon-myrtle">Lemon Myrtle Pavlova</div>
+  <div class="filterDiv wattleseed">Wattleseed Chocolate Tart</div>
+  <div class="filterDiv wattleseed">Wattleseed Profiteroles</div>
+  <div class="filterDiv wattleseed">Wattleseed Tiramisu</div>
+  <div class="filterDiv wattleseed">Wattleseed Clafoutis</div>
+  <div class="filterDiv quandong">Quandong Pie</div>
+  <div class="filterDiv quandong">Quandong Christmas Cake</div>
+  <div class="filterDiv macadamia">White Chocolate Macadamia Cookies</div>
+</div>
+
 {% endblock %}

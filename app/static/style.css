@@ -48,27 +48,130 @@ body{
 }
 
 .navbar{
-    text-align: center;
+    display: flex;
+    height: 20px;
     align-items: center;
     border-bottom: 2px solid #6E683C;
+    padding: 0px 40px;
+    box-sizing: border-box;
 }
 
 .navbar a{
-    list-style: none;
-    margin-left: auto;
     text-decoration: none;
     color:#BF8951;
-    align-items: center;
-    padding: 0px 40px;
-
+    padding-inline: 9%;
 }
 
 .section-1{
     padding: 50px 40px;
     background-image: url('/static/images/baking_background_picture.png');
+    color:#F8F6EB
 }
 
+.section-1 h1{
+  font-size: 40px;
+  padding-bottom: 13px;
+}
+
+/* to get rid of the weird line thingos that kept coming up */
 hr {
     color:#F8F6EB;
     border-width: 0px;
+}
+
+.default-button {
+    background-color:#F8F6EB;
+    color:#6E683C;
+    border-radius: 5px; 
+    padding: 12px 24px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.sign-in {
+    padding: 50px 40px;
+    background-image: url('/static/images/login_background.png');
+    color:#F8F6EB;
+}
+
+/* Experimental */
+.filterDiv {
+  display: none;
+}
+
+.show {
+  display: block;
 }
