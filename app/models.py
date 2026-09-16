@@ -36,6 +36,7 @@ class Post(db.Model):
     body: so.Mapped[str] = so.mapped_column(sa.String(140))
     timestamp: so.Mapped[datetime] = so.mapped_column(
         index=True, default=lambda: datetime.now(timezone.utc))
+    recipe_id: so.Mapped[str] = so.mapped_column(sa.String(100), index=True)
     user_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey(User.id),
                                                index=True)
 
