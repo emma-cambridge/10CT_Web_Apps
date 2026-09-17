@@ -75,3 +75,7 @@ def user(username):
 @app.route('/explore', methods=['GET', 'POST'])
 def explore():
     return render_template("explore.html")
+
+@app.route('/cordial', methods=['GET', 'POST'])
+def cordial():
+    return render_template("recipe_templates/cordial.html")
