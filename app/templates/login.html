@@ -3,27 +3,27 @@
 {% block content %}
     <section class="sign-in">
         <div class="log-in-box">
-            <h1>Sign In</h1>
+            <div class="login-header"><header>Sign In</header></div>
             <form action="" method="post" novalidate>
                 {{ form.hidden_tag() }}
                 <div class="input-box">
-                    {{ form.username.label }}<br>
-                    {{ form.username(size=32) }}<br>
+                    {{ form.username(size=32, placeholder="Username", class_="input-field") }}
                     {% for error in form.username.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
+                    <span>[{{ error }}]</span>
                     {% endfor %}
                 </div>
                 <div class="input-box">
-                    {{ form.password.label }}<br>
-                    {{ form.password(size=32) }}<br>
+                    {{ form.password(size=32, placeholder="Password", class_="input-field") }}
                     {% for error in form.password.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
+                    <span>[{{ error }}]</span>
                     {% endfor %}
                 </div>
-                <div class="remember-me">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
-                <div class="submit-button">{{ form.submit() }}</div>
+                <div class="remember-me">
+                    <section> {{ form.remember_me() }} {{ form.remember_me.label }} </section>
+                    <section>New User? <a href="{{ url_for('register') }}"> Click here to Register!</a> </section>
+                </div>
+                <div class="input-submit">{{ form.submit(class_="submit-btn")}}</div>
             </form>
-            <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
         </div>
     </section>
 {% endblock %}
