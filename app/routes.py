@@ -9,7 +9,14 @@ import sqlalchemy as sa
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template("index.html")
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('index'))
+    posts = db.session.scalars(db.select(Post)).all()
+    return render_template('index.html', title='Home Page', form=form, posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -48,19 +55,6 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route('/recipe', methods=['GET', 'POST'])
-def recipe_base():
-    form = PostForm()
-    if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
-        db.session.add(post)
-        db.session.commit()
-        flash('Your post is now live!')
-        return redirect(url_for('recipe_base'))
-    posts = db.session.scalars(db.select(Post)).all()
-    return render_template("recipe_base.html", title='Home Page', form=form,
-                           posts=posts)
-    
 
 @app.route('/user/<username>')
 @login_required

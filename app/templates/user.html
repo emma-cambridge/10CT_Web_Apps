@@ -2,13 +2,14 @@
 
 {% block content %}
     <section class="sign-in">
-        <div class="register-box">
+        <div class="view-profile-box">
             <img class="view-profile-picture" src="{{ url_for('static', filename='images/profile_picture.png') }}">
             <div class="login-header"><header>Profile</header></div>
-            <div class="profile-content">
-                <td><h1>Username: {{ user.username }}</h1></td>
-                <td><h1>Email: {{ user.email }}</h1></td>
-            </div>
+            <table class="profile-content">
+                <tr><td><h1>Username: {{ user.username }}</h1></td></tr>
+                <tr><td><h1>Email: {{ user.email }}</h1></td></tr>
+            </table>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
         </div>
     </section>
 {% endblock %}
