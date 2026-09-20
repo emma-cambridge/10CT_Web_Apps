@@ -76,6 +76,6 @@ def user(username):
 def explore():
     return render_template("explore.html")
 
-@app.route('/cordial', methods=['GET', 'POST'])
-def cordial():
-    return render_template("recipe_templates/cordial.html")
+@app.route('/history', methods=['GET', 'POST'])
+def history():
+    return render_template("history.html")

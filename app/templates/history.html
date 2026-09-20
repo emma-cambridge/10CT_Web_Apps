@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="history-container">
+        <h1>The World's First Bakers</h1>
+        <div class="history-content">
+            <p>
+                Although many people believe breadmaking began in Egypt or Mesopotamia 17,000 years ago, archaeological evidence has proven that Indigenous Australians were the first to make bread.
+                In 1991 a grind stone from cuddie springs (right) containing starch remnants was dated back 30,000 years.
+                More recently, in 2015 a similar stone found in Arnhem Land is believed to have been used 65,000 years ago.
+            </p>
+            <div class="history-image"><img src="{{ url_for('static', filename='images/grinding-stone.png') }}"></div>
+        </div>
+    </div>
+    <div class="history-container2">
+        <div class="history-content2">
+            <h1>Agriculture</h1>
+            <p>
+                Indigenous Australians weren't just hunters and gatherers, they developed complex dam irrigation systems, food preservation boxes made of materials like clay and straw, and sustainable aquacultural techniques.
+                A key feature of Indigenous agriculture was a commitment to caring for the environment. This involved only taking what was necessary, aiding plant regeneration through cool burns, and rotating agricultural areas to prevent overuse.
+            </p>
+        </div>
+    </div>
+    <div class="history-container">
+        <h1>First Nation's Food Today</h1>
+        <div class="history-content">
+            <p>
+                Today, although landscapes and typical diets have changed drastically due to the introduction of foreign animals like sheep, there's still a strong legacy of Indigenous Australian food culture.
+                Particularly in recent years there's been a growing interest in local, native produce, resulting in a push to expand the commercial availability of native produce. 
+                However, it's also important to acknowledge the history of these ingredients and allow Indigenous communities control over the commercialisation of them in order to avoid the unethical dispersion of traditional produce.
+            </p>
+            <div class="history-image"><img src="https://live-production.wcms.abc-cdn.net.au/afd5266270496db5abf0880a25d92804?impolicy=wcms_crop_resize&cropH=719&cropW=1280&xPos=0&yPos=0&width=862&height=485"></div>
+        </div>
+    </div>
+{% endblock %}
